@@ -19,4 +19,7 @@ describe("StringCalc", () => {
   test("check for newlines between numbers", () => {
     expect(res.add("1\n2,3")).toBe(6);
   });
+  test("check for custom delimiters", () => {
+    expect(res.add("//;\n1;2")).toBe(3);
+  });
 });
