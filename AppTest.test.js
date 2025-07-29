@@ -22,4 +22,12 @@ describe("StringCalc", () => {
   test("check for custom delimiters", () => {
     expect(res.add("//;\n1;2")).toBe(3);
   });
+  test("check for negative numbers", () => {
+    expect(() => res.add("-1,2,3")).toThrow("negative numbers not allowed -1");
+  });
+  test("check for multiple negative numbers", () => {
+    expect(() => res.add("-1,-2,3")).toThrow(
+      "negative numbers not allowed -1,-2"
+    );
+  });
 });

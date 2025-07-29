@@ -12,6 +12,12 @@ class StringCalc {
       actualString = numberString.substring(delimiterIndex + 1);
     }
     const numArray = actualString.split(delimiters).map(Number);
+    if (numArray.some((num) => num < 0)) {
+      throw new Error(
+        "negative numbers not allowed " +
+          numArray.filter((num) => num < 0).join(",")
+      );
+    }
     return numArray.reduce((sum, n) => sum + n, 0);
   }
 }
